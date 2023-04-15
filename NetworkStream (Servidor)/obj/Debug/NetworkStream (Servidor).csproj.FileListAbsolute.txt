@@ -1,0 +1,12 @@
+C:\Users\Administrador\Documents\SharpDevelop Projects\NetworkStream (Servidor)\NetworkStream (Servidor)\bin\Debug\NetworkStream (Servidor).exe.config
+C:\Users\Administrador\Documents\SharpDevelop Projects\NetworkStream (Servidor)\NetworkStream (Servidor)\bin\Debug\NetworkStream (Servidor).exe
+C:\Users\Administrador\Documents\SharpDevelop Projects\NetworkStream (Servidor)\NetworkStream (Servidor)\bin\Debug\NetworkStream (Servidor).pdb
+C:\Users\Administrador\Documents\SharpDevelop Projects\NetworkStream (Servidor)\NetworkStream (Servidor)\obj\Debug\NetworkStream (Servidor).csprojResolveAssemblyReference.cache
+C:\Users\Administrador\Documents\SharpDevelop Projects\NetworkStream (Servidor)\NetworkStream (Servidor)\obj\Debug\NetworkStream (Servidor).exe
+C:\Users\Administrador\Documents\SharpDevelop Projects\NetworkStream (Servidor)\NetworkStream (Servidor)\obj\Debug\NetworkStream (Servidor).pdb
+D:\4to\paradig mas 2\NetworkStream (Servidor)\NetworkStream (Servidor)\bin\Debug\NetworkStream (Servidor).exe.config
+D:\4to\paradig mas 2\NetworkStream (Servidor)\NetworkStream (Servidor)\obj\Debug\NetworkStream (Servidor).exe
+D:\4to\paradig mas 2\NetworkStream (Servidor)\NetworkStream (Servidor)\obj\Debug\NetworkStream (Servidor).pdb
+D:\4to\paradig mas 2\NetworkStream (Servidor)\NetworkStream (Servidor)\bin\Debug\NetworkStream (Servidor).exe
+D:\4to\paradig mas 2\NetworkStream (Servidor)\NetworkStream (Servidor)\bin\Debug\NetworkStream (Servidor).pdb
+D:\4to\paradig mas 2\NetworkStream (Servidor)\NetworkStream (Servidor)\obj\Debug\NetworkStream (Servidor).csprojResolveAssemblyReference.cache
