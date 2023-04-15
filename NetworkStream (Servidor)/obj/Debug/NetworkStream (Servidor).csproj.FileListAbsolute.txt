@@ -10,3 +10,9 @@ D:\4to\paradig mas 2\NetworkStream (Servidor)\NetworkStream (Servidor)\obj\Debug
 D:\4to\paradig mas 2\NetworkStream (Servidor)\NetworkStream (Servidor)\bin\Debug\NetworkStream (Servidor).exe
 D:\4to\paradig mas 2\NetworkStream (Servidor)\NetworkStream (Servidor)\bin\Debug\NetworkStream (Servidor).pdb
 D:\4to\paradig mas 2\NetworkStream (Servidor)\NetworkStream (Servidor)\obj\Debug\NetworkStream (Servidor).csprojResolveAssemblyReference.cache
+C:\Users\USER\OneDrive\Documentos\GitHub\proyecto-servidor\NetworkStream (Servidor)\bin\Debug\NetworkStream (Servidor).exe.config
+C:\Users\USER\OneDrive\Documentos\GitHub\proyecto-servidor\NetworkStream (Servidor)\bin\Debug\NetworkStream (Servidor).exe
+C:\Users\USER\OneDrive\Documentos\GitHub\proyecto-servidor\NetworkStream (Servidor)\bin\Debug\NetworkStream (Servidor).pdb
+C:\Users\USER\OneDrive\Documentos\GitHub\proyecto-servidor\NetworkStream (Servidor)\obj\Debug\NetworkStream (Servidor).csprojResolveAssemblyReference.cache
+C:\Users\USER\OneDrive\Documentos\GitHub\proyecto-servidor\NetworkStream (Servidor)\obj\Debug\NetworkStream (Servidor).exe
+C:\Users\USER\OneDrive\Documentos\GitHub\proyecto-servidor\NetworkStream (Servidor)\obj\Debug\NetworkStream (Servidor).pdb

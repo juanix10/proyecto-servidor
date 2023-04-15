@@ -43,6 +43,7 @@ namespace NetworkStream__Servidor_
 			
 			int opcion;
 				do{
+				Console.ForegroundColor = ConsoleColor.DarkGreen;
 					Console.WriteLine("Elija Una De Las Opciones");
 					Console.WriteLine("1: Quitar Iconos Del Escritorio");
 					Console.WriteLine("2: Directiva2");
