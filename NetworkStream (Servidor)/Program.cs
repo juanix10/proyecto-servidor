@@ -15,6 +15,7 @@ using System.Diagnostics;
 
 namespace NetworkStream__Servidor_
 {
+
 	class Program
 	{
 		const int puerto= 9999;
@@ -43,19 +44,19 @@ namespace NetworkStream__Servidor_
 			
 			int opcion;
 				do{
-				Console.ForegroundColor = ConsoleColor.DarkGreen;
 					Console.WriteLine("Elija Una De Las Opciones");
 					Console.WriteLine("1: Quitar Iconos Del Escritorio");
-					Console.WriteLine("2: Directiva2");
-					Console.WriteLine("3: Directiva3");
+					Console.WriteLine("2: Quitar Opcion De Apagado");
+					Console.WriteLine("3: Desactivar Panel De Control");
 					Console.WriteLine("4: Directiva4");
 					Console.WriteLine("5: Directiva5");
 					Console.WriteLine("6: Ejecutar programa");
 					Console.WriteLine("7: Terminar programa");
 					Console.WriteLine("8: Lista de procesos");
+					Console.WriteLine("9: Salir :) ");
 			
 			opcion = int.Parse(Console.ReadLine());
-			
+			bool exit = false;
 			switch(opcion)
 			{
 				case 1:
@@ -66,10 +67,14 @@ namespace NetworkStream__Servidor_
 					
 				case 2: 
 					Console.WriteLine("Selecciono la opcion 2 ");
+					EliminarApagado();
+					EliminarExplorador();
 					break;
 					
 				case 3:
 					Console.WriteLine("Selecciono la opcion 3 ");
+					EliminarPanelDeControl();
+					EliminarExplorador();
 					break;
 					
 				case 4:
@@ -91,6 +96,13 @@ namespace NetworkStream__Servidor_
 				case 8:
 					Console.WriteLine(" Selecciono la opcion 8 ");
 					break;
+					
+				case 9:
+					Console.WriteLine("Saliendo del programa");
+					Console.ReadKey(exit);
+					break;
+				
+					
 					
 				default:
 					Console.WriteLine(" Opcion invalida ");
@@ -121,6 +133,37 @@ namespace NetworkStream__Servidor_
 			Process[] proceso = Process.GetProcessesByName("explorer");
 			proceso[0].Kill();
 		}
-  
+		
+		public static void EliminarApagado(){
+			string UserRoot = "HKEY_CURRENT_USER";
+			string subkey = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer";
+			string keyName = UserRoot + "\\" + subkey;
+			Console.WriteLine("1 : Activar Opcion De Apagado");
+			Console.WriteLine("2 : Desactivar Opcion De Apagado");
+			
+			ConsoleKeyInfo reg = Console.ReadKey();
+			
+			if(reg.Key == ConsoleKey.D1){
+				Registry.SetValue(keyName,"NoClose", 0, RegistryValueKind.DWord);
+			}else{
+				Registry.SetValue(keyName,"NoClose", 1, RegistryValueKind.DWord);
+			}
+		}
+		
+		public static void EliminarPanelDeControl(){
+			string UserRoot = "HKEY_CURRENT_USER";
+			string subkey = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer";
+			string keyName = UserRoot + "\\" + subkey;
+			Console.WriteLine("1 : Activar Panel De Control");
+			Console.WriteLine("2 : Desactivar Panel De Control");
+			
+			ConsoleKeyInfo reg = Console.ReadKey();
+			
+			if(reg.Key == ConsoleKey.D1){
+				Registry.SetValue(keyName,"NoControlPanel", 0, RegistryValueKind.DWord);
+			}else{
+				Registry.SetValue(keyName,"NoControlPanel", 1, RegistryValueKind.DWord);
+			}
+		}
 	}
 }
