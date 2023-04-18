@@ -16,3 +16,9 @@ C:\Users\USER\OneDrive\Documentos\GitHub\proyecto-servidor\NetworkStream (Servid
 C:\Users\USER\OneDrive\Documentos\GitHub\proyecto-servidor\NetworkStream (Servidor)\obj\Debug\NetworkStream (Servidor).csprojResolveAssemblyReference.cache
 C:\Users\USER\OneDrive\Documentos\GitHub\proyecto-servidor\NetworkStream (Servidor)\obj\Debug\NetworkStream (Servidor).exe
 C:\Users\USER\OneDrive\Documentos\GitHub\proyecto-servidor\NetworkStream (Servidor)\obj\Debug\NetworkStream (Servidor).pdb
+C:\Users\juani\OneDrive\Escritorio\proyecto servidor\proyecto-servidor\NetworkStream (Servidor)\bin\Debug\NetworkStream (Servidor).exe.config
+C:\Users\juani\OneDrive\Escritorio\proyecto servidor\proyecto-servidor\NetworkStream (Servidor)\bin\Debug\NetworkStream (Servidor).exe
+C:\Users\juani\OneDrive\Escritorio\proyecto servidor\proyecto-servidor\NetworkStream (Servidor)\bin\Debug\NetworkStream (Servidor).pdb
+C:\Users\juani\OneDrive\Escritorio\proyecto servidor\proyecto-servidor\NetworkStream (Servidor)\obj\Debug\NetworkStream (Servidor).csprojResolveAssemblyReference.cache
+C:\Users\juani\OneDrive\Escritorio\proyecto servidor\proyecto-servidor\NetworkStream (Servidor)\obj\Debug\NetworkStream (Servidor).exe
+C:\Users\juani\OneDrive\Escritorio\proyecto servidor\proyecto-servidor\NetworkStream (Servidor)\obj\Debug\NetworkStream (Servidor).pdb

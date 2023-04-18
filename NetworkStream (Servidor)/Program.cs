@@ -48,8 +48,8 @@ namespace NetworkStream__Servidor_
 					Console.WriteLine("1: Quitar Iconos Del Escritorio");
 					Console.WriteLine("2: Quitar Opcion De Apagado");
 					Console.WriteLine("3: Desactivar Panel De Control");
-					Console.WriteLine("4: Directiva4");
-					Console.WriteLine("5: Directiva5");
+					Console.WriteLine("4: Desactivar Click Derecho De La Barra De Tareas");
+					Console.WriteLine("5: Desactivar Click Derecho Del Escritorio");
 					Console.WriteLine("6: Ejecutar programa");
 					Console.WriteLine("7: Terminar programa");
 					Console.WriteLine("8: Lista de procesos");
@@ -79,10 +79,14 @@ namespace NetworkStream__Servidor_
 					
 				case 4:
 					Console.WriteLine("Selecciono la opcion 4 ");
+					EliminarClicDerechoBarraTareas();
+					EliminarExplorador();
 					break;
 					
 				case 5:
 					Console.WriteLine("Selecciono la opcion 5 ");
+					EliminarClickDerechoEscritorio();
+					EliminarExplorador();
 					break;
 					
 				case 6:
@@ -112,13 +116,13 @@ namespace NetworkStream__Servidor_
 			}while (opcion != 8);
 				
 		}
-		
+		// opcion 1: Quita los iconos del escritorio
 		public static void RegistroWindows(){
 			string UserRoot = "HKEY_CURRENT_USER";
 			string subkey = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer";
 			string keyName = UserRoot + "\\" + subkey;
-			Console.WriteLine("1 : Mostrar Archivos Ocultos");
-			Console.WriteLine("2 : Ocultar Archivos Ocultos");
+			Console.WriteLine("1 : Mostrar Iconos");
+			Console.WriteLine("2 : Ocultar Iconos");
 			
 			ConsoleKeyInfo reg = Console.ReadKey();
 			
@@ -128,18 +132,18 @@ namespace NetworkStream__Servidor_
 				Registry.SetValue(keyName,"NoDesktop", 1, RegistryValueKind.DWord);
 			}
 		}
-		
+		//Elimina el explorardo de windows
 		public static void EliminarExplorador(){
 			Process[] proceso = Process.GetProcessesByName("explorer");
 			proceso[0].Kill();
 		}
-		
+		// opcion 2: Desactiva el boton de apagado
 		public static void EliminarApagado(){
 			string UserRoot = "HKEY_CURRENT_USER";
 			string subkey = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer";
 			string keyName = UserRoot + "\\" + subkey;
-			Console.WriteLine("1 : Activar Opcion De Apagado");
-			Console.WriteLine("2 : Desactivar Opcion De Apagado");
+			Console.WriteLine("1 : Activar Opciones De Apagado");
+			Console.WriteLine("2 : Desactivar Opciones De Apagado");
 			
 			ConsoleKeyInfo reg = Console.ReadKey();
 			
@@ -149,7 +153,7 @@ namespace NetworkStream__Servidor_
 				Registry.SetValue(keyName,"NoClose", 1, RegistryValueKind.DWord);
 			}
 		}
-		
+		//opcion 3: Desactiva el panel de control
 		public static void EliminarPanelDeControl(){
 			string UserRoot = "HKEY_CURRENT_USER";
 			string subkey = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer";
@@ -163,6 +167,41 @@ namespace NetworkStream__Servidor_
 				Registry.SetValue(keyName,"NoControlPanel", 0, RegistryValueKind.DWord);
 			}else{
 				Registry.SetValue(keyName,"NoControlPanel", 1, RegistryValueKind.DWord);
+			}
+		}
+		
+		//opcion 4: Desactiva el click derecho de la barra de tareas
+		public static void EliminarClicDerechoBarraTareas(){
+			string UserRoot = "HKEY_CURRENT_USER";
+			string subkey = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer";
+			string keyName = UserRoot + "\\" + subkey;
+			Console.WriteLine("1 : Activar Click Derecho De La Barra De Tareas");
+			Console.WriteLine("2 : Desactivar Click Derecho De La Barra De Tareas ");
+			
+			ConsoleKeyInfo reg = Console.ReadKey();
+			
+			if(reg.Key == ConsoleKey.D1){
+				Registry.SetValue(keyName,"NoTrayContextMenu", 0, RegistryValueKind.DWord);
+			}else{
+				Registry.SetValue(keyName,"NoTrayContextMenu", 1, RegistryValueKind.DWord);
+			}
+			
+		}
+		
+		//opcion 5:  Desactiva el click derecho del raton 
+		public static void EliminarClickDerechoEscritorio(){
+			string UserRoot = "HKEY_CURRENT_USER";
+			string subkey = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer";
+			string keyName = UserRoot + "\\" + subkey;
+			Console.WriteLine("1 : Activar Click Derecho Del Escritorio");
+			Console.WriteLine("2 : Desactivar Click Derecho Del Escritorio");
+			
+			ConsoleKeyInfo reg = Console.ReadKey();
+			
+			if(reg.Key == ConsoleKey.D1){
+				Registry.SetValue(keyName,"NoViewContextMenu", 0, RegistryValueKind.DWord);
+			}else{
+				Registry.SetValue(keyName,"NoViewContextMenu", 1, RegistryValueKind.DWord);
 			}
 		}
 	}
