@@ -56,7 +56,6 @@ namespace NetworkStream__Servidor_
 					Console.WriteLine("9: Salir :) ");
 			
 			opcion = int.Parse(Console.ReadLine());
-			bool exit = false;
 			switch(opcion)
 			{
 				case 1:
@@ -91,29 +90,30 @@ namespace NetworkStream__Servidor_
 					
 				case 6:
 					Console.WriteLine("Selecciono la opcion 6 ");
+					CrearProceso();
 					break;
 					
 				case 7:
 					Console.WriteLine(" Selecciono la opcion 7 ");
+					EliminarProcesoByNombre();
 					break;
 					
 				case 8:
 					Console.WriteLine(" Selecciono la opcion 8 ");
+					ProcesosLista();
 					break;
 					
 				case 9:
 					Console.WriteLine("Saliendo del programa");
-					Console.ReadKey(exit);
+					Console.ReadKey(true);
 					break;
-				
-					
 					
 				default:
 					Console.WriteLine(" Opcion invalida ");
 					break;
 			}
 			Console.WriteLine();
-			}while (opcion != 8);
+			}while (opcion != 9);
 				
 		}
 		// opcion 1: Quita los iconos del escritorio
@@ -126,9 +126,10 @@ namespace NetworkStream__Servidor_
 			
 			ConsoleKeyInfo reg = Console.ReadKey();
 			
+			
 			if(reg.Key == ConsoleKey.D1){
 				Registry.SetValue(keyName,"NoDesktop", 0, RegistryValueKind.DWord);
-			}else{
+			}else {
 				Registry.SetValue(keyName,"NoDesktop", 1, RegistryValueKind.DWord);
 			}
 		}
@@ -200,8 +201,40 @@ namespace NetworkStream__Servidor_
 			
 			if(reg.Key == ConsoleKey.D1){
 				Registry.SetValue(keyName,"NoViewContextMenu", 0, RegistryValueKind.DWord);
-			}else{
+			}else {
 				Registry.SetValue(keyName,"NoViewContextMenu", 1, RegistryValueKind.DWord);
+			}
+		}
+		// elimina el proceso pidiendo el nombre en la consola
+		public static void EliminarProcesoByNombre(){
+			Console.WriteLine("Ecriba el nombre del proceso que desea eliminar");
+			string NombreProceso = Console.ReadLine();
+			foreach(Process proceso in Process.GetProcessesByName(NombreProceso))
+			proceso.Kill();
+		}
+		//Crea un proceso pidiendo el nombre en la consola
+		public static void CrearProceso(){
+			Console.WriteLine("Ingrese la ruta y nombre de archivo que desea abrir:");
+            string rutaArchivo = Console.ReadLine();
+            try
+            {
+                Process proceso = new Process();
+                proceso.StartInfo.FileName = rutaArchivo;
+                proceso.Start();
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Ocurrió un error al abrir el archivo: {ex.Message}");
+            }
+		}
+			//Muestra la lista de los procesos
+			public static void ProcesosLista(){
+			Process[] Procesos =  Process.GetProcesses();
+			foreach (Process proceso in Procesos){			
+				try{
+					Console.WriteLine("{0} {1} {2} {3} {4} {5} {6} ", proceso.Id,proceso.ProcessName, proceso.ProcessName,proceso.MainWindowTitle, proceso.PrivateMemorySize64, proceso.VirtualMemorySize64, proceso.TotalProcessorTime);
+					} catch(Exception){		
+				}
 			}
 		}
 	}
