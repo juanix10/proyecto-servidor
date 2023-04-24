@@ -12,6 +12,7 @@ using System.Net.Sockets;
 using System.Text;
 using Microsoft.Win32;
 using System.Diagnostics;
+using System.Threading;
 
 namespace NetworkStream__Servidor_
 {
@@ -23,15 +24,44 @@ namespace NetworkStream__Servidor_
 		{
 			
 			//ProporcionarIP();
-			Menu();
-			Console.ReadKey(true);
+			int SerCli;
+			do{
+				Console.WriteLine("Elija que Desea Ejecutar:");
+				Console.WriteLine("1: Cliente");
+				Console.WriteLine("2: Servidor");
+				SerCli= int.Parse(Console.ReadLine());
+				switch(SerCli){
+					case 1:
+						Console.WriteLine("Eligio Cliente:");
+						Console.Write("Procesando: [");
+   	    					for (int i = 0; i < 20; i++){
+   	         					Console.Write("#");
+   	         					Thread.Sleep(100); // Pausa para simular procesamiento
+        					}
+       					Console.WriteLine("] ");
+       					MenuCliente();
+       					break;
+       				case 2: 
+						Console.WriteLine("Eligio Servidor: ");
+						Console.Write("Procesando: [");
+   	    					for (int i = 0; i < 20; i++){
+   	         					Console.Write("#");
+   	         					Thread.Sleep(100); // Pausa para simular procesamiento
+        					}
+       					Console.WriteLine("] ");
+       					MenuServidor();
+						break;
+				}
+			Console.WriteLine();
+			}while (SerCli != 2);
 			
 		}
+		
 		public static void ProporcionarIP()
 		{
-			Console.WriteLine(" introduce la direccion ip");
+			Console.WriteLine(" Introduce la direccion ip");
 			string direccionIp = Console.ReadLine();
-			Console.WriteLine("Elija una de las opciones");
+			Console.WriteLine("Escriba la opcion: ___");
 			string mensaje = Console.ReadLine();
 			IPEndPoint oIPEndPoint =new IPEndPoint(IPAddress.Parse(direccionIp),puerto);
 			Socket oSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream,ProtocolType.Tcp);
@@ -40,7 +70,26 @@ namespace NetworkStream__Servidor_
 			oSocket.Close();
 		}
 		
-		public static void Menu(){
+		public static void MenuServidor(){
+			
+			Console.WriteLine("Soy el servidor esperando al cliente");
+			IPEndPoint oIPEndPoint = new IPEndPoint(IPAddress.Any, 9999);
+			Socket oSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+			oSocket.Bind(oIPEndPoint);
+			oSocket.Listen(10);
+
+			Socket Cliente = oSocket.Accept();
+			byte[] datos = new byte[1024];
+			int longitud = Cliente.Receive(datos);
+			string cadena = Encoding.ASCII.GetString(datos,0,longitud);
+			try{
+				Console.WriteLine("\n" + cadena);
+			}catch{
+				Console.WriteLine("Error ese programa no existe");
+			}
+		}
+		
+		public static void MenuCliente(){
 			
 			int opcion;
 				do{
@@ -105,7 +154,7 @@ namespace NetworkStream__Servidor_
 					
 				case 9:
 					Console.WriteLine("Saliendo del programa");
-					Console.ReadKey(true);
+					Environment.Exit(0);
 					break;
 					
 				default:
