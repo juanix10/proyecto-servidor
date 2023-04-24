@@ -39,6 +39,7 @@ namespace NetworkStream__Servidor_
    	         					Thread.Sleep(100); // Pausa para simular procesamiento
         					}
        					Console.WriteLine("] ");
+       					ProporcionarIP();
        					MenuCliente();
        					break;
        				case 2: 
@@ -51,6 +52,10 @@ namespace NetworkStream__Servidor_
        					Console.WriteLine("] ");
        					MenuServidor();
 						break;
+					default:
+						Console.WriteLine(" Opcion invalida ");
+						break;
+						
 				}
 			Console.WriteLine();
 			}while (SerCli != 2);
